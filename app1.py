@@ -13,111 +13,6 @@ import re
 import io, base64
 
 
-# ''' This code is for training Images  '''
-
-# reader = easyocr.Reader(['en'],gpu=False)
-path_1="D:\Projects\Swiss Beauty Image Classification\More Test Images Text from Image"
-save_path='D:\\Projects\\Swiss Beauty Image Classification\\More Test Images Text from Image\\resized'
-
-x=[]
-
-
-# for file in os.listdir(path_1):
-#     img=Image.open(path_1+"\\"+file)
-#     fn,fe=os.path.splitext(file)
-#     img.thumbnail((600,600),Image.ANTIALIAS)
-#     img.save(save_path+"\\"+fn+fe)
-#     rotations=[0,-90,180,90]
-#     qq=1
-#     fixed_height=500
-#     for rotation in rotations:
-#         height_percent = (fixed_height / float(img.size[1]))
-#         width_size = int((float(img.size[0]) * float(height_percent)))
-#         img = img.resize((width_size, fixed_height), Image.NEAREST)
-#         nn=img.rotate(rotation)
-#         nn.save(save_path+"\\"+fn+"-"+str(qq)+fe)
-#         qq+=1
-            
-
-# for q in os.listdir(save_path):
-#     output = reader.readtext(os.path.join(save_path, q))
-#     for item in output:
-#         x.append(item[1])
-
-# df=pd.DataFrame([x]).transpose()
-# df.to_excel(os.path.join(save_path,"words list-1.xlsx"))
-
-
-
-
-
-# '''  This Code is Final   '''
-
-
-# rotaions=[0,-90,180,90]
-# fixed_height=500
-# x=[]
-# path_2=input('Enter Image path:  ')
-# for rotaion in rotaions:
-#     reader=easyocr.Reader(['en'])
-#     img=Image.open(path_2)
-#     fn,fe=os.path.splitext(path_2)
-#     height_percent = (fixed_height / float(img.size[1]))
-#     width_size = int((float(img.size[0]) * float(height_percent)))
-#     new_img = img.resize((width_size, fixed_height), Image.NEAREST)
-#     new_img1=new_img.rotate(rotaion)
-#     new_img1.save(path_2)
-#     sleep(0)
-#     output=reader.readtext(path_2)
-#     for item in output:
-#         x.append(item[1])
-
-
-
-
-
-# xls = pd.read_excel("D:\Projects\Swiss Beauty Image Classification\words list - Copy.xlsx",index_col=0).to_dict()
-
-# for i in xls:
-#     xls=xls[i]
-
-# xx=[]
-# xxx=[]
-# for ii in xls:
-#     for jj in x:
-#         if ii==jj:
-#             xx.append(ii+":"+xls.get(jj))
-#             for aq in xx:
-#                 az=aq.split(":")
-#                 for t in az:
-#                     if az[1]==xls.get(jj):
-#                         xxx.append(az[1])
-
-# print(x)        
-# print(xx)
-# print('This Product is:  '+xxx[0])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # '''  Code to Streamlit  '''
 @st.cache(allow_output_mutation=True)
@@ -132,14 +27,11 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 
 fixed_height=500
 x=[]
-# path_2=input('Enter Image path:  ')
 if file is None:
     st.text("Please upload an image file")
     
 else:
-    # for rotaion in rotaions:
     f_ex=file.name.split('.')
-    # print(f_ex[1])
     if f_ex[1]=='jpeg':
         img=Image.open(file)
         st.image(img,width=300)
@@ -151,7 +43,6 @@ else:
             output=reader.readtext(np.array(new_img))
             for item in output:
                 x.append(item[1])
-            # print(x)
             xls = pd.read_excel("D:\Projects\Swiss Beauty Image Classification\words list - Copy.xlsx",index_col=0).to_dict()
             df=pd.read_excel("D:\Projects\Swiss Beauty Image Classification\Book2 - Copy.xlsx")
 
@@ -232,7 +123,6 @@ else:
             output=reader.readtext(np.array(new_img1))
             for item in output:
                 x.append(item[1])
-                # print(x)
                 
             xls = pd.read_excel("D:\Projects\Swiss Beauty Image Classification\words list - Copy.xlsx",index_col=0).to_dict()
             df=pd.read_excel("D:\Projects\Swiss Beauty Image Classification\Book2 - Copy.xlsx")
@@ -251,7 +141,7 @@ else:
                                 for t in az:
                                     if az[1]==xls.get(jj):
                                         xxx.append(az[1])
-                # print(xxx)
+
             try:
                 result='This Product is:  '+xxx[0]+"     "+'😎'
                 font_color= f'<p style="font-family: American Typewriter ; background-color:red; color:white; font-size: 42px;">{result}</p>'
