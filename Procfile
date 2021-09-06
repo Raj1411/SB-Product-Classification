@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run SB Product Classification.py
+web: sh setup.sh && streamlit run app1.py
