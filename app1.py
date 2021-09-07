@@ -112,7 +112,7 @@ else:
                 
     else:
         img1=Image.open(file)
-        st.image(img1.rotate(180),width=300)
+        st.image(img1.rotate(270),width=300)
 #         st.image(img1,width=300) 
         height_percent1 = (fixed_height / float(img1.size[1]))
         width_size = int((float(img1.size[0]) * float(height_percent1)))
