@@ -113,6 +113,7 @@ else:
     else:
         img1=Image.open(file)
 #         st.image(img1.rotate(-90),width=300)
+        st.image(width=300) 
         height_percent1 = (fixed_height / float(img1.size[1]))
         width_size = int((float(img1.size[0]) * float(height_percent1)))
         new_img1 = img1.resize((width_size, fixed_height), Image.ANTIALIAS)
