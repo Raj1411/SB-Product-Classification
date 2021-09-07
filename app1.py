@@ -34,7 +34,7 @@ else:
     f_ex=file.name.split('.')
     if f_ex[1]=='jpeg':
         img=Image.open(file)
-        st.image(img,width=300)
+        st.image(img.rotate(270),width=300)
         height_percent = (fixed_height / float(img.size[1]))
         width_size = int((float(img.size[0]) * float(height_percent)))
         new_img = img.resize((width_size, fixed_height), Image.ANTIALIAS)
