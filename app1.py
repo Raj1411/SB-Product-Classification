@@ -34,7 +34,7 @@ else:
     f_ex=file.name.split('.')
     if f_ex[1]=='jpeg':
         img=Image.open(file)
-        st.image(img.rotate(270),width=300)
+        st.image(img.rotate(-90),width=300)
         height_percent = (fixed_height / float(img.size[1]))
         width_size = int((float(img.size[0]) * float(height_percent)))
         new_img = img.resize((width_size, fixed_height), Image.ANTIALIAS)
@@ -117,7 +117,7 @@ else:
         height_percent1 = (fixed_height / float(img1.size[1]))
         width_size = int((float(img1.size[0]) * float(height_percent1)))
         new_img1 = img1.resize((width_size, fixed_height), Image.ANTIALIAS)
-        new_img1=new_img1.rotate(-90)
+        new_img1=new_img1.rotate(-180)
             # new_img1.save(file)
         reader=file_reader()
         with st.spinner("🤖  AI is Working....!"):
