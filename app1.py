@@ -117,7 +117,7 @@ else:
         height_percent1 = (fixed_height / float(img1.size[1]))
         width_size = int((float(img1.size[0]) * float(height_percent1)))
         new_img1 = img1.resize((width_size, fixed_height), Image.ANTIALIAS)
-        new_img1=new_img1.rotate(360)
+        new_img1=new_img1.rotate(-360)
             # new_img1.save(file)
         reader=file_reader()
         with st.spinner("🤖  AI is Working....!"):
