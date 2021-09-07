@@ -125,7 +125,7 @@ else:
             output=reader.readtext(np.array(new_img1))
             for item in output:
                 x.append(item[1])
-                print(x)
+                st.write(x)
                 
             xls = pd.read_excel("./words list - Copy.xlsx",index_col=0).to_dict()
             df=pd.read_excel("./Book2 - Copy.xlsx")
@@ -144,7 +144,7 @@ else:
                                 for t in az:
                                     if az[1]==xls.get(jj):
                                         xxx.append(az[1])
-                                        print(xxx)
+                                        st.write(xxx)
 
             try:
                 result='This Product is:  '+xxx[0]+"     "+'😎'
