@@ -52,8 +52,8 @@ else:
             for item in output:
                 x.append(item[1])
 
-        xls = pd.read_excel("D:\Projects\Swiss Beauty Image Classification\words list - Copy.xlsx",index_col=0).to_dict()
-        df=pd.read_excel("D:\Projects\Swiss Beauty Image Classification\Book2 - Copy.xlsx")
+        xls = pd.read_excel("./words list - Copy.xlsx",index_col=0).to_dict()
+        df=pd.read_excel("./Book2 - Copy.xlsx")
 
 
         xx=[]
